@@ -1,3 +1,4 @@
+'use client'
 import { useForm } from "react-hook-form";
 
 type LoginFormData={
@@ -7,13 +8,13 @@ type LoginFormData={
  
 export default function Login(){
 
-    const{register,handlesubmit}=useForm<LoginFormData>();
+    const{register,handleSubmit} = useForm<LoginFormData>();
 
     const onSubmit = (data:LoginFormData)=>{
         console.log(data.email, data.password);
     };
 return(
-    <form onSubmit={handlesubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
 
         <input 
         type="email"
