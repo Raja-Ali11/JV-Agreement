@@ -1,6 +1,10 @@
 'use client';
 import { UserPlus, Handshake, ChartLine, Home, HandCoins } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import LandImg from '../../public/landImg.jpg';
+import LandImg1 from '../../public/landImg1.jpg';
+import LandImg2 from '../../public/landImg2.jpg';
 
 export default function Page() {
   const navlinks = [
@@ -29,6 +33,12 @@ export default function Page() {
       "Diversify your portfolio with land-based investments",
       "Secure deals with trusted landowners and clear terms"
     ]},
+  ]
+
+  const featuredLands = [
+    {catg:"Residential", img:LandImg, title: "5 Acre Residential Plot", des: "Prime residential land suitable for housing projects and gated communities.", location: "Islamabad, PK", price: "PKR 950,000"},
+    {catg:"Commercial", img:LandImg1, title: "10 Acre Commercial Land", des: "Strategically located commercial land ideal for retail and office spaces.", location: "Lahore, PK", price: "PKR 2,500,000"},
+    {catg:"Agricultural", img:LandImg2, title: "15 Acre Agricultural Land", des: "Fertile agricultural land perfect for farming and agribusiness ventures.", location: "Multan, PK", price: "PKR 1,200,000"},
   ]
 
   return(
@@ -107,11 +117,26 @@ export default function Page() {
 
     <div id="featured" className="py-16 px-16 bg-gray-50 space-y-12">
       <div className="space-y-2">
-        <h2 className="text-4xl font-bold text-center mb-4">Featured Land Opportunities</h2>
-        <p className="max-w-3xl mx-auto text-center text-gray-600 px-4">Explore top land opportunities ready for development.</p>
+        <h2 className="text-4xl font-bold px-4 mb-4">Featured Land Opportunities</h2>
+        <p className="max-w-3xl text-gray-600 px-4">Explore top land opportunities ready for development.</p>
       </div>
-      <div>
-
+      <div className="grid grid-cols-3 gap-6">
+        {featuredLands.map((land, idx) => (
+          <div key={idx} className="max-w-300px bg-white rounded-lg">
+            <Image src={land.img} alt={land.title} width={200} height={200} className="rounded-lg mb-4 w-full h-55"/>
+            <div className="p-4">
+              <span className="flex justify-between">
+                <span className="bg-green-900 text-white px-2 py-1 rounded-lg text-sm font-semibold">{land.catg}</span>
+                <span className="text-md text-gray-700 font-semibold ml-4">{land.location}</span>
+              </span>
+              <h3 className="font-bold mt-2">{land.title}</h3>
+              <p className="text-gray-600 mb-2">{land.des}</p>
+              <p>
+                <span className="font-bold text-green-900">Price: </span>{land.price}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
 
