@@ -1,7 +1,7 @@
 'use client'
 import { Building, ChartLine, LogIn, MapPinned } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 type LoginFormData={
     email:string
@@ -11,7 +11,7 @@ type LoginFormData={
  
 export default function Login(){
 
-    // const navigate = useNavigate();
+    const router = useRouter();
 
     const{register,handleSubmit} = useForm<LoginFormData>({
         defaultValues: { role: 'investor' }
@@ -98,7 +98,7 @@ return(
                 </div>
             </div>
     
-            <button type="submit" className=" flex justify-center gap-2 p-2 items-center text-center bg-blue-600 rounded-lg text-white font-bold w-full">
+            <button onClick={()=> router.push("/investor/dashboard")} type="submit" className=" flex justify-center gap-2 p-2 items-center text-center bg-blue-600 rounded-lg text-white font-bold w-full">
                 <LogIn size={18} />
                 Sign in
             </button>
