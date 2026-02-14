@@ -1,4 +1,8 @@
+<<<<<<< HEAD:app/(auth)/register/page.tsx
 'use client';
+=======
+"use client";
+>>>>>>> 3d8e74c (Updated login and register pages):app/auth/register.tsx
 import { useForm } from "react-hook-form";
 
 type SignupFormData = {
@@ -34,7 +38,7 @@ export default function Signup() {
           </div>
           <h1 className="text-xl font-semibold">Join RealEstate Ventures</h1>
           <p className="text-sm text-gray-500">
-            Create your account to start investing
+            Create your account 
           </p>
         </div>
 
