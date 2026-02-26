@@ -13,6 +13,7 @@ export default function Page() {
     {name: "Featured", path: "#featured"},
     {name: "About", path: "#about"},
   ]
+  
 
   const workSteps = [
     {icon: <UserPlus/> ,title: "Step 1: Register", description: "Create your account as a landowner or investor. Complete your profile and verify your details to get started."},
